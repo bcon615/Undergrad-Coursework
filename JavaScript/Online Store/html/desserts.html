@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<!--
+	Author: William Connor
+	Date: 11/20/17
+-->
+<title>Brownies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../js/wac.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>	
+<script src="../js/shoppingCart.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+	<div class="container">
+	<nav>
+		<div class="row">
+			<img id="logo" src="../img/logo.jpg" alt="Our Summer Kitchen Logo">
+			<button class="btn btn-default target cart-button" style="float: right;">View Cart</button>
+		</div>
+		</header>
+	</nav>
+<div id="mainContent">
+<img src='#' id="product-image" width='500' height='550'>
+<script>
+function setupPage() {
+	var queryData = location.search;
+	queryData = queryData.substring(1, queryData.length);
+	queryData = queryData.split("&");
+			
+	for(var i = 0; i < queryData.length; i++) {
+			
+			switch(queryData[i].split("=")[0]) {	
+				case "index":
+            		var index = parseInt(queryData[i].split("=")[1]);
+					i = index;
+					
+							var tableStr = "";
+				tableStr += "<table border='1'>";
+					tableStr += "<td>";
+						tableStr += "<div class='col-sm' id='product-image'><img src='../img/" + productImgURL[i] + '.png' + " ' /> </div>";
+					tableStr += "</td>";
+								
+					tableStr += "<td>";
+						tableStr += "<div class='col-sm'> " + productLongName[i] + "  </div>";
+					tableStr += "</td>";
+
+					tableStr += "<td>";
+						tableStr += "<div class='col-sm'> " + productShortDescription[i] + "  </div>";
+					tableStr += "</td>";
+
+					tableStr += "<td>";
+						tableStr += "<div class='col-sm'> " + "$" + productPrice[i] + ".00" + "  </div>";
+					tableStr += "</td>";
+
+					tableStr += "<td>";
+						tableStr += "<div class='col-sm'><button class='btn btn-default add-cart' onclick='addToCart(" + i + ")'>Add To Cart</button></div>";
+					tableStr += "</td>";
+
+				tableStr += "</tr>";
+				
+				tableStr += "</table>";
+				break;
+			}
+		}
+		document.getElementById("mainContent").innerHTML = tableStr;
+	}
+
+	function init () {
+		document.getElementById("container");
+		setupPage();
+	}
+
+$(document).ready(function () {
+	
+	init()
+
+	$('#logo').click(function(){
+		window.open('../index.html', '_self');
+	})
+	$('.cart-button').click(function(){
+        window.open('viewCart.html', '_self');
+		})
+});
+</script>
+<!-- end #mainContent --> </div>
+<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->
+<br class="clearfloat" />	
+<!-- end #container --></div>
+</body>
+</html>
