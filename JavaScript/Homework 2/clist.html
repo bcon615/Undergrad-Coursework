@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- 
+   New Perspectives on JavaScript, 2nd Edition
+   Tutorial 3
+   Case Problem 1
+
+   The Lighthouse
+   Author: William Connor
+   Date:  9/14/17  
+
+   Filename:         clist.htm
+   Supporting files: lhouse.css, list.js, logo.jpg
+
+-->
+   <title>The Lighthouse</title>
+   <link href="lhouse.css" rel="stylesheet" type="text/css" />
+    <script src="list.js"></script> 
+      <script>
+		
+		function amountTotal() {
+			
+			var total = 0;
+			
+			for(var i = 0; i < amount.length; i++) {
+				
+				total += amount[i];
+
+			} // end for loop
+		
+		return total;
+		
+		}
+	     
+	  </script>
+</head>
+
+<body>
+
+   <div id="title">
+      <img src="logo.jpg" alt="The Lighthouse" />
+      The Lighthouse<br />
+      543 Oak Street<br />
+      Owensboro, KY &nbsp;&nbsp;42302<br/>
+      (270) 555-7511
+   </div>
+
+   <div id="data_list">	
+				
+		
+
+		
+		<script>
+		
+		var myForTable = "";
+		myForTable += "<table border=’1’ rules=’rows’ cellspacing=’0’>";
+		myForTable += "<tr>";
+		
+			myForTable += "<th>";
+				myForTable += "Date";
+			myForTable += "</th>";
+			
+			myForTable += "<th>";
+				myForTable += "Amount";
+			myForTable += "</th>";
+			
+			myForTable += "<th>";
+				myForTable += "First Name";
+			myForTable += "</th>";
+			
+			myForTable += "<th>";
+				myForTable += "Last Name";
+			myForTable += "</th>";
+			
+			myForTable += "<th>";
+				myForTable += "Address";
+			myForTable += "</th>";
+			
+		myForTable += "</tr>";
+		
+		
+		for(var i = 0; i < amount.length; i++) {
+		
+		
+			if(i % 2 == 0) { 
+				myForTable += ("<tr>"); 
+			} else { 
+				myForTable += ("<tr class='yellowrow'>");
+				}   
+				
+
+				
+				myForTable += "<td>";
+					myForTable += date[i];
+				myForTable += "</td>";
+			
+				myForTable += "<td>";
+					myForTable += amount[i];
+				myForTable += "</td>";
+			
+				myForTable += "<td>";
+					myForTable += firstName[i];
+				myForTable += "</td>";
+				
+				myForTable += "<td>";
+					myForTable += lastName[i];
+				myForTable += "</td>";
+				
+				myForTable += "<td>";
+					myForTable += street[i];
+				myForTable += "</td>";
+				
+				myForTable += "<td>";
+					myForTable += city[i] + "," + " " + state[i] + " " + zip[i];
+				myForTable += "</td>";
+				
+
+				
+			myForTable += ("</tr>");
+			
+			} // end for loop
+			
+				
+		myForTable += "</table>";
+		document.write(myForTable);
+		
+		</script>
+   </div>
+
+   <div id="totals">
+   
+		<script>
+		var myTotalTable = "";
+		myTotalTable += "<table border='1' cellspacing='1'>";
+		
+		myTotalTable += "<tr>";
+			myTotalTable += "<th id='sumTitle' colspan='2'>Summary</th>";
+		myTotalTable += "</tr>";
+		
+		myTotalTable += "<tr>";
+			myTotalTable += "<th>Contributors</th>";
+				myTotalTable += "<td>";
+					myTotalTable += amount.length;
+				myTotalTable += "</td>";
+		myTotalTable += "</tr>";
+		
+		myTotalTable += "<tr>";
+			myTotalTable += "<th>Amount</th>";
+				myTotalTable += "<td>";
+					myTotalTable += "$" + amountTotal();
+				myTotalTable += "</td>";
+		myTotalTable += "</tr>";
+		
+		
+		
+		myTotalTable += "</table>";
+		document.write(myTotalTable);
+		</script>
+   
+   </div>
+  
+
+</body>
+</html>
